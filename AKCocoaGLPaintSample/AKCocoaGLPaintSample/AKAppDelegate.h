@@ -25,5 +25,6 @@
 
 - (IBAction)undoPressed:(id)sender;
 - (IBAction)redoPressed:(id)sender;
+- (IBAction)savePressed:(id)sender;
 
 @end

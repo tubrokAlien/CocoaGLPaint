@@ -20,10 +20,6 @@
     // Insert code here to initialize your application
 }
 
-- (void)awakeFromNib {
-    
-}
-
 - (IBAction)sizeChanged:(NSSlider *)sender {
 
     self.paintControl.lineWidth = sender.floatValue;
@@ -57,6 +53,20 @@
 - (IBAction)redoPressed:(id)sender {
     
     [self.paintView.undoManager redo];
+}
+
+- (IBAction)savePressed:(id)sender {
+    
+    NSImage *img = [self.paintView snapshot];
+    
+    NSString *dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *path = [dirPath stringByAppendingPathComponent:@"CocoaGLPaintSample.png"];
+    [img writeToFile:[NSURL fileURLWithPath:path]];
+    
+    NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"File saved to %@", path] defaultButton:@"Ok" alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+    [alert beginSheetModalForWindow:self.window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+    
+    [[NSWorkspace sharedWorkspace] openURL: [NSURL fileURLWithPath:dirPath]];
 }
 
 @end

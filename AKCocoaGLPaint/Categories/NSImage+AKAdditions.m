@@ -28,4 +28,48 @@
     return dragImage;
 }
 
+- (void)writeToFile:(NSURL *)fileURL
+{
+    NSBitmapImageRep *bitmapRep = nil;
+    
+    for (NSImageRep *imageRep in [self representations])
+    {
+        if ([imageRep isKindOfClass:[NSBitmapImageRep class]])
+        {
+            bitmapRep = (NSBitmapImageRep *)imageRep;
+            break; // stop on first bitmap rep we find
+        }
+    }
+    
+    if (!bitmapRep)
+    {
+        bitmapRep = [NSBitmapImageRep imageRepWithData:[self TIFFRepresentation]];
+    }
+    
+    NSData *imageData = [bitmapRep representationUsingType:[self fileTypeForFile:[fileURL lastPathComponent]] properties:nil];
+    [imageData writeToURL:fileURL atomically:NO];
+}
+
+- (NSBitmapImageFileType)fileTypeForFile:(NSString *)file
+{
+    NSString *extension = [[file pathExtension] lowercaseString];
+    
+    if ([extension isEqualToString:@"png"])
+    {
+        return NSPNGFileType;
+    }
+    else if ([extension isEqualToString:@"gif"])
+    {
+        return NSGIFFileType;
+    }
+    else if ([extension isEqualToString:@"jpg"] || [extension isEqualToString:@"jpeg"])
+    {
+        return NSJPEGFileType;
+    }
+    else
+    {
+        return NSTIFFFileType;
+    }
+}
+
 @end

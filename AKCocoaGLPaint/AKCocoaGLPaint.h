@@ -10,3 +10,6 @@
 #import "AKPaintView.h"
 #import "AKPaintSession.h"
 #import "AKPaintStep.h"
+
+#import "NSImage+AKAdditions.h"
+#import "NSOpenGLView+AKAdditions.h"

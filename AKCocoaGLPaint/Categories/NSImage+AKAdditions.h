@@ -13,4 +13,6 @@
 - (CGImageRef) CGImage;
 - (NSImage *) imageWithAlpha:(float)alpha;
 
+- (void)writeToFile:(NSURL *)fileURL;
+
 @end

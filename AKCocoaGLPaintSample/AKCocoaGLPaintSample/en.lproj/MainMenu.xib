@@ -1687,7 +1687,7 @@
 							<string key="NSFrame">{{34, 148}, {82, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="745428276"/>
+							<reference key="NSNextKeyView" ref="959849789"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="188320333">
@@ -1697,6 +1697,31 @@
 								<reference key="NSSupport" ref="650724223"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="1038458398"/>
+								<int key="NSButtonFlags">-2038284288</int>
+								<int key="NSButtonFlags2">129</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+						</object>
+						<object class="NSButton" id="959849789">
+							<reference key="NSNextResponder" ref="439893737"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{20, 26}, {111, 32}}</string>
+							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="745428276"/>
+							<string key="NSReuseIdentifierKey">_NS:9</string>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="496495354">
+								<int key="NSCellFlags">67108864</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents">Save Image</string>
+								<reference key="NSSupport" ref="650724223"/>
+								<string key="NSCellIdentifier">_NS:9</string>
+								<reference key="NSControlView" ref="959849789"/>
 								<int key="NSButtonFlags">-2038284288</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -2498,6 +2523,14 @@
 					<int key="connectionID">746</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">savePressed:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="959849789"/>
+					</object>
+					<int key="connectionID">749</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">paintView</string>
 						<reference key="source" ref="992176236"/>
@@ -3036,6 +3069,7 @@
 							<reference ref="191333504"/>
 							<reference ref="989029446"/>
 							<reference ref="1038458398"/>
+							<reference ref="959849789"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3686,6 +3720,19 @@
 						<reference key="object" ref="992176236"/>
 						<reference key="parent" ref="0"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">747</int>
+						<reference key="object" ref="959849789"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="496495354"/>
+						</array>
+						<reference key="parent" ref="439893737"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">748</int>
+						<reference key="object" ref="496495354"/>
+						<reference key="parent" ref="959849789"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3862,6 +3909,8 @@
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="735.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="747.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="748.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="75.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="78.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3875,7 +3924,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">746</int>
+			<int key="maxID">749</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3887,6 +3936,7 @@
 						<string key="colorChanged:">NSColorWell</string>
 						<string key="opacityChanged:">NSSlider</string>
 						<string key="redoPressed:">id</string>
+						<string key="savePressed:">id</string>
 						<string key="sizeChanged:">NSSlider</string>
 						<string key="softnessChanged:">NSSlider</string>
 						<string key="undoPressed:">id</string>
@@ -3906,6 +3956,10 @@
 						</object>
 						<object class="IBActionInfo" key="redoPressed:">
 							<string key="name">redoPressed:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="savePressed:">
+							<string key="name">savePressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="sizeChanged:">

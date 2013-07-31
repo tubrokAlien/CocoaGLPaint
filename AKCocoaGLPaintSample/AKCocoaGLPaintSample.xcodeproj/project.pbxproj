@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E98BD42217A92A1300128D06 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98BD42117A92A1300128D06 /* Cocoa.framework */; };
+		E98BD42C17A92A1300128D06 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E98BD42A17A92A1300128D06 /* InfoPlist.strings */; };
+		E98BD42E17A92A1300128D06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E98BD42D17A92A1300128D06 /* main.m */; };
+		E98BD43217A92A1300128D06 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E98BD43017A92A1300128D06 /* Credits.rtf */; };
+		E98BD43517A92A1300128D06 /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E98BD43417A92A1300128D06 /* AKAppDelegate.m */; };
+		E98BD43817A92A1300128D06 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E98BD43617A92A1300128D06 /* MainMenu.xib */; };
+		E98BD45617A92A8E00128D06 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E98BD45517A92A8E00128D06 /* OpenGL.framework */; };
+		E98BD45B17A92B2800128D06 /* bgImg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E98BD45A17A92B2800128D06 /* bgImg.jpg */; };
+		E9CA67F417A938ED007A286F /* AKPaintControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CA67E717A938ED007A286F /* AKPaintControl.m */; };
+		E9CA67F517A938ED007A286F /* AKPaintSession.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CA67E917A938ED007A286F /* AKPaintSession.m */; };
+		E9CA67F617A938ED007A286F /* AKPaintStep.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CA67EB17A938ED007A286F /* AKPaintStep.m */; };
+		E9CA67F717A938ED007A286F /* AKPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CA67ED17A938ED007A286F /* AKPaintView.m */; };
+		E9CA67F817A938ED007A286F /* Brushes.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E9CA67EE17A938ED007A286F /* Brushes.bundle */; };
+		E9CA67F917A938ED007A286F /* NSImage+AKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CA67F117A938ED007A286F /* NSImage+AKAdditions.m */; };
+		E9CA67FA17A938ED007A286F /* NSOpenGLView+AKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9CA67F317A938ED007A286F /* NSOpenGLView+AKAdditions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E98BD41E17A92A1300128D06 /* AKCocoaGLPaintSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKCocoaGLPaintSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E98BD42117A92A1300128D06 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		E98BD42417A92A1300128D06 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		E98BD42517A92A1300128D06 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E98BD42617A92A1300128D06 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E98BD42917A92A1300128D06 /* AKCocoaGLPaintSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AKCocoaGLPaintSample-Info.plist"; sourceTree = "<group>"; };
+		E98BD42B17A92A1300128D06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E98BD42D17A92A1300128D06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E98BD42F17A92A1300128D06 /* AKCocoaGLPaintSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AKCocoaGLPaintSample-Prefix.pch"; sourceTree = "<group>"; };
+		E98BD43117A92A1300128D06 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		E98BD43317A92A1300128D06 /* AKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
+		E98BD43417A92A1300128D06 /* AKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
+		E98BD43717A92A1300128D06 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		E98BD45517A92A8E00128D06 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		E98BD45A17A92B2800128D06 /* bgImg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImg.jpg; sourceTree = "<group>"; };
+		E9CA67E517A938ED007A286F /* AKCocoaGLPaint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKCocoaGLPaint.h; sourceTree = "<group>"; };
+		E9CA67E617A938ED007A286F /* AKPaintControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPaintControl.h; sourceTree = "<group>"; };
+		E9CA67E717A938ED007A286F /* AKPaintControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPaintControl.m; sourceTree = "<group>"; };
+		E9CA67E817A938ED007A286F /* AKPaintSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPaintSession.h; sourceTree = "<group>"; };
+		E9CA67E917A938ED007A286F /* AKPaintSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPaintSession.m; sourceTree = "<group>"; };
+		E9CA67EA17A938ED007A286F /* AKPaintStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPaintStep.h; sourceTree = "<group>"; };
+		E9CA67EB17A938ED007A286F /* AKPaintStep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPaintStep.m; sourceTree = "<group>"; };
+		E9CA67EC17A938ED007A286F /* AKPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPaintView.h; sourceTree = "<group>"; };
+		E9CA67ED17A938ED007A286F /* AKPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPaintView.m; sourceTree = "<group>"; };
+		E9CA67EE17A938ED007A286F /* Brushes.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Brushes.bundle; sourceTree = "<group>"; };
+		E9CA67F017A938ED007A286F /* NSImage+AKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+AKAdditions.h"; sourceTree = "<group>"; };
+		E9CA67F117A938ED007A286F /* NSImage+AKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+AKAdditions.m"; sourceTree = "<group>"; };
+		E9CA67F217A938ED007A286F /* NSOpenGLView+AKAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOpenGLView+AKAdditions.h"; sourceTree = "<group>"; };
+		E9CA67F317A938ED007A286F /* NSOpenGLView+AKAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOpenGLView+AKAdditions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E98BD41B17A92A1300128D06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E98BD45617A92A8E00128D06 /* OpenGL.framework in Frameworks */,
+				E98BD42217A92A1300128D06 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E98BD41517A92A1300128D06 = {
+			isa = PBXGroup;
+			children = (
+				E9CA67E417A938ED007A286F /* AKCocoaGLPaint */,
+				E98BD42717A92A1300128D06 /* AKCocoaGLPaintSample */,
+				E98BD42017A92A1300128D06 /* Frameworks */,
+				E98BD41F17A92A1300128D06 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E98BD41F17A92A1300128D06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E98BD41E17A92A1300128D06 /* AKCocoaGLPaintSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E98BD42017A92A1300128D06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E98BD45517A92A8E00128D06 /* OpenGL.framework */,
+				E98BD42117A92A1300128D06 /* Cocoa.framework */,
+				E98BD42317A92A1300128D06 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E98BD42317A92A1300128D06 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E98BD42417A92A1300128D06 /* AppKit.framework */,
+				E98BD42517A92A1300128D06 /* CoreData.framework */,
+				E98BD42617A92A1300128D06 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		E98BD42717A92A1300128D06 /* AKCocoaGLPaintSample */ = {
+			isa = PBXGroup;
+			children = (
+				E98BD45A17A92B2800128D06 /* bgImg.jpg */,
+				E98BD43317A92A1300128D06 /* AKAppDelegate.h */,
+				E98BD43417A92A1300128D06 /* AKAppDelegate.m */,
+				E98BD43617A92A1300128D06 /* MainMenu.xib */,
+				E98BD42817A92A1300128D06 /* Supporting Files */,
+			);
+			path = AKCocoaGLPaintSample;
+			sourceTree = "<group>";
+		};
+		E98BD42817A92A1300128D06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E98BD42917A92A1300128D06 /* AKCocoaGLPaintSample-Info.plist */,
+				E98BD42A17A92A1300128D06 /* InfoPlist.strings */,
+				E98BD42D17A92A1300128D06 /* main.m */,
+				E98BD42F17A92A1300128D06 /* AKCocoaGLPaintSample-Prefix.pch */,
+				E98BD43017A92A1300128D06 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9CA67E417A938ED007A286F /* AKCocoaGLPaint */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA67E517A938ED007A286F /* AKCocoaGLPaint.h */,
+				E9CA67E617A938ED007A286F /* AKPaintControl.h */,
+				E9CA67E717A938ED007A286F /* AKPaintControl.m */,
+				E9CA67E817A938ED007A286F /* AKPaintSession.h */,
+				E9CA67E917A938ED007A286F /* AKPaintSession.m */,
+				E9CA67EA17A938ED007A286F /* AKPaintStep.h */,
+				E9CA67EB17A938ED007A286F /* AKPaintStep.m */,
+				E9CA67EC17A938ED007A286F /* AKPaintView.h */,
+				E9CA67ED17A938ED007A286F /* AKPaintView.m */,
+				E9CA67EE17A938ED007A286F /* Brushes.bundle */,
+				E9CA67EF17A938ED007A286F /* Categories */,
+			);
+			name = AKCocoaGLPaint;
+			path = ../AKCocoaGLPaint;
+			sourceTree = "<group>";
+		};
+		E9CA67EF17A938ED007A286F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA67F017A938ED007A286F /* NSImage+AKAdditions.h */,
+				E9CA67F117A938ED007A286F /* NSImage+AKAdditions.m */,
+				E9CA67F217A938ED007A286F /* NSOpenGLView+AKAdditions.h */,
+				E9CA67F317A938ED007A286F /* NSOpenGLView+AKAdditions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E98BD41D17A92A1300128D06 /* AKCocoaGLPaintSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E98BD43B17A92A1300128D06 /* Build configuration list for PBXNativeTarget "AKCocoaGLPaintSample" */;
+			buildPhases = (
+				E98BD41A17A92A1300128D06 /* Sources */,
+				E98BD41B17A92A1300128D06 /* Frameworks */,
+				E98BD41C17A92A1300128D06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AKCocoaGLPaintSample;
+			productName = AKCocoaGLPaintSample;
+			productReference = E98BD41E17A92A1300128D06 /* AKCocoaGLPaintSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E98BD41617A92A1300128D06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AK;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = KorbCorp;
+			};
+			buildConfigurationList = E98BD41917A92A1300128D06 /* Build configuration list for PBXProject "AKCocoaGLPaintSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E98BD41517A92A1300128D06;
+			productRefGroup = E98BD41F17A92A1300128D06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E98BD41D17A92A1300128D06 /* AKCocoaGLPaintSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E98BD41C17A92A1300128D06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E98BD42C17A92A1300128D06 /* InfoPlist.strings in Resources */,
+				E98BD43217A92A1300128D06 /* Credits.rtf in Resources */,
+				E98BD43817A92A1300128D06 /* MainMenu.xib in Resources */,
+				E98BD45B17A92B2800128D06 /* bgImg.jpg in Resources */,
+				E9CA67F817A938ED007A286F /* Brushes.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E98BD41A17A92A1300128D06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E98BD42E17A92A1300128D06 /* main.m in Sources */,
+				E98BD43517A92A1300128D06 /* AKAppDelegate.m in Sources */,
+				E9CA67F417A938ED007A286F /* AKPaintControl.m in Sources */,
+				E9CA67F517A938ED007A286F /* AKPaintSession.m in Sources */,
+				E9CA67F617A938ED007A286F /* AKPaintStep.m in Sources */,
+				E9CA67F717A938ED007A286F /* AKPaintView.m in Sources */,
+				E9CA67F917A938ED007A286F /* NSImage+AKAdditions.m in Sources */,
+				E9CA67FA17A938ED007A286F /* NSOpenGLView+AKAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E98BD42A17A92A1300128D06 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E98BD42B17A92A1300128D06 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E98BD43017A92A1300128D06 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E98BD43117A92A1300128D06 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		E98BD43617A92A1300128D06 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E98BD43717A92A1300128D06 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E98BD43917A92A1300128D06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E98BD43A17A92A1300128D06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		E98BD43C17A92A1300128D06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AKCocoaGLPaintSample/AKCocoaGLPaintSample-Prefix.pch";
+				INFOPLIST_FILE = "AKCocoaGLPaintSample/AKCocoaGLPaintSample-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E98BD43D17A92A1300128D06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AKCocoaGLPaintSample/AKCocoaGLPaintSample-Prefix.pch";
+				INFOPLIST_FILE = "AKCocoaGLPaintSample/AKCocoaGLPaintSample-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E98BD41917A92A1300128D06 /* Build configuration list for PBXProject "AKCocoaGLPaintSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E98BD43917A92A1300128D06 /* Debug */,
+				E98BD43A17A92A1300128D06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E98BD43B17A92A1300128D06 /* Build configuration list for PBXNativeTarget "AKCocoaGLPaintSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E98BD43C17A92A1300128D06 /* Debug */,
+				E98BD43D17A92A1300128D06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E98BD41617A92A1300128D06 /* Project object */;
+}

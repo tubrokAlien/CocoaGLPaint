@@ -10,6 +10,7 @@
 #import "AKPaintSession.h"
 #import "AKPaintStep.h"
 #import "AKPaintControl.h"
+#include <GLUT/glut.h>
 
 #import "NSImage+AKAdditions.h"
 
@@ -195,7 +196,12 @@
     // Allocate  memory needed for the bitmap context
     GLubyte *brushData = (GLubyte *) calloc(width * height * 4, sizeof(GLubyte));
     // Use  the bitmatp creation function provided by the Core Graphics framework.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wenum-conversion"
+	// suppress the warning about the kCGImageAlphaPremultipliedFirst parameter to CGBitmapContextCreate(); the documentation says it's safe
     CGContextRef brushContext = CGBitmapContextCreate(brushData, width, height, 8, width * 4, CGImageGetColorSpace(brushImage), kCGImageAlphaPremultipliedFirst);
+#pragma clang diagnostic pop
+
     // After you create the context, you can draw the  image to the context.
     CGContextDrawImage(brushContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), brushImage);
     // You don't need the context at this point, so you need to release it to avoid memory leaks.

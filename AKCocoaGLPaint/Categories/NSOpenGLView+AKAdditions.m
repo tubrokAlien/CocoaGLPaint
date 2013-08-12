@@ -7,6 +7,7 @@
 //
 
 #import "NSOpenGLView+AKAdditions.h"
+#include <OpenGL/glu.h>
 
 @implementation NSOpenGLView (AKAdditions)
 

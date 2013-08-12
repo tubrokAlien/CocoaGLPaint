@@ -19,10 +19,6 @@
     }
     return self;
 }
-- (void)dealloc {
-    
-	_steps = nil;
-}
 
 - (id)initWithDataArray:(NSArray *) array {
     if ((self = [super init])) {

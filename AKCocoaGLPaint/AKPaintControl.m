@@ -55,14 +55,6 @@
     
     return self;
 }
-- (void)dealloc {
-    
-    self.color = nil;
-    self.brushImage = nil;
-    
-    self.paintView = nil;
-    
-}
 
 
 

@@ -59,9 +59,5 @@
             @(self.brushPixelStep)];
 }
 
-- (void)dealloc {
-    
-    self.color = nil;
-}
 
 @end

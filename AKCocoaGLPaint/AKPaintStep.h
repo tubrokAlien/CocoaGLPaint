@@ -19,7 +19,7 @@
 @property (nonatomic, assign) float alpha;
 @property (nonatomic, assign) float brushPixelStep;
 
-@property (readonly) NSArray* data;
+@property (weak, readonly) NSArray* data;
 
 - (id)initWithColor:(NSColor*)aColor start:(CGPoint)aStart end:(CGPoint)anEnd pointSize:(float) pointSize hardness:(float) hardness eraser:(BOOL) eraser alpha:(float) alpha brushPixelStep:(float) step;
 - (id)initWithData:(NSArray*)data;

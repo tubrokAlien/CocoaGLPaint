@@ -93,8 +93,6 @@
 	}
     
   
-    self.brush = nil;
-    self.brushColor = nil;
 }
 
 #pragma mark -

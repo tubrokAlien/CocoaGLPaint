@@ -22,7 +22,7 @@
     NSImage *dragImage = [[[NSImage alloc] initWithSize:[self size]] autorelease];
     
     [dragImage lockFocus];
-    [self compositeToPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];
+	[self drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];
     [dragImage unlockFocus];
     
     return dragImage;

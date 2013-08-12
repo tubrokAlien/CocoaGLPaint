@@ -10,11 +10,6 @@
 
 @implementation AKAppDelegate
 
-- (void)dealloc
-{
-    [super dealloc];
-}
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
@@ -59,7 +54,7 @@
     
     NSImage *img = [self.paintView snapshot];
     
-    NSString *dirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *dirPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
     NSString *path = [dirPath stringByAppendingPathComponent:@"CocoaGLPaintSample.png"];
     [img writeToFile:[NSURL fileURLWithPath:path]];
     

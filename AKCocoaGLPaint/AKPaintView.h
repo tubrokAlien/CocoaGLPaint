@@ -21,10 +21,10 @@
     NSArray *sessionPrevDataArray;
 }
 
-@property(nonatomic, retain, readonly) AKPaintSession *paintSession;
+@property(nonatomic, strong) AKPaintSession *paintSession;
 
-@property(nonatomic, retain) NSImage* brush;
-@property(nonatomic, retain) NSColor* brushColor;
+@property(nonatomic, strong) NSImage* brush;
+@property(nonatomic, strong) NSColor* brushColor;
 @property(nonatomic, assign) float pointSize;
 @property(nonatomic, assign) float brushPixelStep;
 @property(nonatomic, assign) float hardness;

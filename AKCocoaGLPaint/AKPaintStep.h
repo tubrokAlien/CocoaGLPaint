@@ -10,14 +10,14 @@
 
 @interface AKPaintStep : NSObject
 
-@property (retain) NSColor* color;
-@property (assign) CGPoint start;
-@property (assign) CGPoint end;
-@property (assign) BOOL eraser;
-@property (assign) float pointSize;
-@property (assign) float hardness;
-@property (assign) float alpha;
-@property (assign) float brushPixelStep;
+@property (nonatomic, strong) NSColor* color;
+@property (nonatomic, assign) CGPoint start;
+@property (nonatomic, assign) CGPoint end;
+@property (nonatomic, assign) BOOL eraser;
+@property (nonatomic, assign) float pointSize;
+@property (nonatomic, assign) float hardness;
+@property (nonatomic, assign) float alpha;
+@property (nonatomic, assign) float brushPixelStep;
 
 @property (readonly) NSArray* data;
 

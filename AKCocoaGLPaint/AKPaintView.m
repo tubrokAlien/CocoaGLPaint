@@ -50,7 +50,7 @@
 
 - (void)prepareOpenGL
 {
-    _paintSession = [[AKPaintSession alloc] init];
+    self.paintSession = [[AKPaintSession alloc] init];
     
     GLint parm = 1;
     GLint val = 0;
@@ -92,12 +92,9 @@
 		brushTexture = 0;
 	}
     
-    [_paintSession release];
-    
+  
     self.brush = nil;
     self.brushColor = nil;
-    
-    [super dealloc];
 }
 
 #pragma mark -
@@ -131,10 +128,9 @@
     
     [self.undoManager registerUndoWithTarget:self selector:@selector(updatePaintCanvasBySessionDataArray:) object:sessionPrevDataArray];
     
-    [_paintSession setDataArray:dataArray];
+    [self.paintSession setDataArray:dataArray];
     
-    [sessionPrevDataArray release];
-    sessionPrevDataArray = [dataArray retain];
+    sessionPrevDataArray = dataArray;
     
     [self setNeedsDisplay:YES];
 }
@@ -143,7 +139,7 @@
     
     AKPaintStep* step = [[AKPaintStep alloc] initWithColor:self.brushColor start:start end:end pointSize:self.pointSize hardness:self.hardness eraser:self.eraser alpha:self.pointAlpha brushPixelStep:self.brushPixelStep];
     
-    return [step autorelease];
+    return step;
 }
 
 
@@ -160,7 +156,7 @@
     NSPoint loc = [self convertPoint:theEvent.locationInWindow fromView:nil];
     
     AKPaintStep *step = [self paintStepFromPoint:firstLocation toPoint:loc];
-    [_paintSession addStep:step];
+    [self.paintSession addStep:step];
     
     firstLocation = loc;
     
@@ -170,7 +166,7 @@
 }
 - (void)mouseUp:(NSEvent *)theEvent {
     
-    [self updatePaintCanvasBySessionDataArray:_paintSession.dataArray];
+    [self updatePaintCanvasBySessionDataArray:self.paintSession.dataArray];
 }
 
 
@@ -223,7 +219,7 @@
 }
 - (void) bindPointSize {
     
-    glPointSize(_pointSize);
+    glPointSize(self.pointSize);
 }
 - (void) bindBrushColor {
     

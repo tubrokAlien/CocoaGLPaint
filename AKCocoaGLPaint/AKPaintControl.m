@@ -57,12 +57,11 @@
 }
 - (void)dealloc {
     
-    [_color release];
-    [_brushImage release];
+    self.color = nil;
+    self.brushImage = nil;
     
-    [_paintView release];
+    self.paintView = nil;
     
-    [super dealloc];
 }
 
 
@@ -70,42 +69,41 @@
 #pragma mark - 
 #pragma mark Setters
 
-- (void)setEraser:(BOOL)eraser {
+- (void)setEraser:(BOOL)value {
+   
+    _eraser = value;
     
-    _eraser = eraser;
-    
-    self.paintView.eraser = _eraser;
+    self.paintView.eraser = value;
 }
 
-- (void)setAlpha:(float)alpha {
+- (void)setAlpha:(float)value {
     
-    _alpha = alpha;
+    _alpha = value;
     
-    self.paintView.pointAlpha = _alpha;
+    self.paintView.pointAlpha = value;
     self.paintView.brush = self.brushImage;
 }
 
-- (void)setColor:(NSColor *)color {
+- (void)setColor:(NSColor *)value {
     
-    [_color release];
-    _color = [color retain] ;
+    _color = value ;
     
-    self.paintView.brushColor = _color;
+    self.paintView.brushColor = value;
 }
 
-- (void)setHardness:(float)hardness {
+- (void)setHardness:(float)value {
 
-    _hardness = hardness;
+    _hardness = value;
     
-    self.paintView.hardness = _hardness;
+    self.paintView.hardness = value;
     self.paintView.brush = self.brushImage;
 }
 
-- (void)setLineWidth:(float)lineWidth {
+- (void)setLineWidth:(float)value {
 
-    _lineWidth = lineWidth;
+    _lineWidth = value;
     
-    float pointSize = _lineWidth * (1.02 + 0.6 * (1 - _hardness));
+    float pointSize = value * (1.02 + 0.6 * (1 - self.hardness));
     self.paintView.pointSize = pointSize;
     self.paintView.brushPixelStep = pointSize * 0.1;
     
@@ -113,19 +111,19 @@
 }
 - (NSImage *)brushImage {
     
-    return [AKPaintControl brushImageWithHardness:_hardness eraser:_eraser alpha:_alpha];
+    return [AKPaintControl brushImageWithHardness:self.hardness eraser:self.eraser alpha:self.alpha];
 }
 
-+ (NSImage *) brushImageWithHardness:(float) hardness eraser:(BOOL) eraser alpha:(float) alpha {
++ (NSImage *) brushImageWithHardness:(float) hardnessValue eraser:(BOOL) eraserValue alpha:(float) alphaValue {
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Brushes" ofType:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithPath:path];
     
-    NSString *brushkImgName = [NSString stringWithFormat:@"Brush_hardness_%i", (int)hardness*100];
+    NSString *brushkImgName = [NSString stringWithFormat:@"Brush_hardness_%i", (int)hardnessValue*100];
     NSImage *brush = [[NSImage alloc] initWithData:[NSData dataWithContentsOfFile:[bundle pathForResource:brushkImgName ofType:@"png"]]];
     
-    if(alpha != 1)
-        brush = [brush imageWithAlpha:alpha];
+    if(alphaValue != 1)
+        brush = [brush imageWithAlpha:alphaValue];
     
     return brush;
 }

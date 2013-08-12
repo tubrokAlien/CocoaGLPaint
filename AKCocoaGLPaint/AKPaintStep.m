@@ -27,17 +27,17 @@
 - (id)initWithData:(NSArray*)data {
     if ((self = [super init])) {
         
-        self.start = NSPointFromString([data objectAtIndex:0]);
-		self.end = NSPointFromString([data objectAtIndex:1]);
-        self.color = [NSColor colorWithCalibratedRed:[[data objectAtIndex:2] floatValue]
-                                               green:[[data objectAtIndex:3] floatValue]
-                                                blue:[[data objectAtIndex:4] floatValue]
-                                               alpha:[[data objectAtIndex:5] floatValue]];
-        self.pointSize = [[data objectAtIndex:6] floatValue];
-        self.hardness = [[data objectAtIndex:7] floatValue];
-        self.eraser = [[data objectAtIndex:8] boolValue];
-        self.alpha = [[data objectAtIndex:9] floatValue];
-        self.brushPixelStep = [[data objectAtIndex:10] floatValue];
+        self.start = NSPointFromString(data[0]);
+		self.end = NSPointFromString(data[1]);
+        self.color = [NSColor colorWithCalibratedRed:[data[2] floatValue]
+                                               green:[data[3] floatValue]
+                                                blue:[data[4] floatValue]
+                                               alpha:[data[5] floatValue]];
+        self.pointSize = [data[6] floatValue];
+        self.hardness = [data[7] floatValue];
+        self.eraser = [data[8] boolValue];
+        self.alpha = [data[9] floatValue];
+        self.brushPixelStep = [data[10] floatValue];
     }
     return self;
 }
@@ -46,25 +46,22 @@
     
     CGFloat red, green, blue, alpha;
     [self.color getRed:&red green:&green blue:&blue alpha:&alpha];
-    return [NSArray arrayWithObjects:NSStringFromPoint(self.start),
+    return @[NSStringFromPoint(self.start),
             NSStringFromPoint(self.end),
             [NSNumber numberWithFloat:red],
             [NSNumber numberWithFloat:green],
             [NSNumber numberWithFloat:blue],
             [NSNumber numberWithFloat:alpha],
-            [NSNumber numberWithFloat:self.pointSize],
-            [NSNumber numberWithFloat:self.hardness],
-            [NSNumber numberWithBool:self.eraser],
-            [NSNumber numberWithFloat:self.alpha],
-            [NSNumber numberWithFloat:self.brushPixelStep],
-            nil];
+            @(self.pointSize),
+            @(self.hardness),
+            @(self.eraser),
+            @(self.alpha),
+            @(self.brushPixelStep)];
 }
 
 - (void)dealloc {
     
     self.color = nil;
-    
-    [super dealloc];
 }
 
 @end

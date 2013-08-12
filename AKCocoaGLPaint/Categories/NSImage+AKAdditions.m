@@ -11,15 +11,11 @@
 @implementation NSImage (AKAdditions)
 
 - (CGImageRef)CGImage {
-    
-    CGImageSourceRef source = CGImageSourceCreateWithData((CFDataRef)[self TIFFRepresentation], NULL);
-    CGImageRef maskRef =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
-    
-    return maskRef;
+	return [self CGImageForProposedRect:nil context:nil hints:nil];
 }
 - (NSImage *)imageWithAlpha:(float)alpha {
     
-    NSImage *dragImage = [[[NSImage alloc] initWithSize:[self size]] autorelease];
+    NSImage *dragImage = [[NSImage alloc] initWithSize:[self size]];
     
     [dragImage lockFocus];
 	[self drawAtPoint:NSZeroPoint fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:alpha];

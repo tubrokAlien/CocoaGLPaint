@@ -73,13 +73,9 @@ static void memswap(unsigned char *a, unsigned char *b, unsigned int bytes)
     
 	// Create the NSImage from the bitmap
     
-	image = [[[NSImage alloc] initWithSize: NSMakeSize(width, height)] autorelease];
+	image = [[NSImage alloc] initWithSize: NSMakeSize(width, height)];
 	[image addRepresentation: imageRep];
 	
-	// Release memory
-	
-	[imageRep release];
-    
 	// Previously we did not flip the bitmap, and instead did [image setFlipped:YES];
 	// This does not work properly (i.e., the image remained inverted) when pasting
 	// the image to AppleWorks or GraphicConvertor.

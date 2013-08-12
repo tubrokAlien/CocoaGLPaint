@@ -21,9 +21,7 @@
 }
 - (void)dealloc {
     
-    [_steps release];
-    
-    [super dealloc];
+	_steps = nil;
 }
 
 - (id)initWithDataArray:(NSArray *) array {

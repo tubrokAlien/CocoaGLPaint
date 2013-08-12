@@ -12,14 +12,14 @@
 
 @interface AKPaintControl : NSObject
 
-@property (nonatomic) float lineWidth;
-@property (nonatomic, retain) NSColor * color;
-@property (nonatomic) float alpha;
-@property (nonatomic) float hardness;
-@property (nonatomic) BOOL eraser;
-@property (nonatomic, retain) NSImage *brushImage;
+@property (nonatomic, assign) float lineWidth;
+@property (nonatomic, strong) NSColor * color;
+@property (nonatomic, assign) float alpha;
+@property (nonatomic, assign) float hardness;
+@property (nonatomic, assign) BOOL eraser;
+@property (nonatomic, strong) NSImage *brushImage;
 
-@property (nonatomic, retain) IBOutlet AKPaintView *paintView;
+@property (nonatomic, strong) IBOutlet AKPaintView *paintView;
 
 - (id) initWithPaintView:(AKPaintView*)val;
 

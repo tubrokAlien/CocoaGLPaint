@@ -12,17 +12,11 @@
 @class AKPaintSession;
 
 @interface AKPaintView : NSOpenGLView {
-    
+@private
     GLuint	brushTexture;
-    
-    NSRect lastBounds;
-    
-    NSPoint firstLocation;
-    NSArray *sessionPrevDataArray;
 }
 
 @property(nonatomic, strong) AKPaintSession *paintSession;
-
 @property(nonatomic, strong) NSImage* brush;
 @property(nonatomic, strong) NSColor* brushColor;
 @property(nonatomic, assign) float pointSize;

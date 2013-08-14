@@ -18,6 +18,7 @@
 @property (nonatomic, assign) float hardness;
 @property (nonatomic, assign) float alpha;
 @property (nonatomic, assign) float brushPixelStep;
+@property (nonatomic, assign) BOOL shouldDraw;
 
 @property (weak, readonly) NSArray* data;
 

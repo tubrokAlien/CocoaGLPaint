@@ -20,6 +20,7 @@
         self.eraser = eraser;
         self.alpha = alpha;
         self.brushPixelStep = step;
+		self.shouldDraw = YES;
     }
     return self;
 }
@@ -38,7 +39,8 @@
         self.eraser = [data[8] boolValue];
         self.alpha = [data[9] floatValue];
         self.brushPixelStep = [data[10] floatValue];
-    }
+		self.shouldDraw = [data[11] boolValue];
+	}
     return self;
 }
 
@@ -56,7 +58,8 @@
             @(self.hardness),
             @(self.eraser),
             @(self.alpha),
-            @(self.brushPixelStep)];
+            @(self.brushPixelStep),
+			@(self.shouldDraw)];
 }
 
 

@@ -14,7 +14,20 @@
 
 #import "NSImage+AKAdditions.h"
 
+@interface AKPaintView ()
+
+@property(nonatomic, strong) NSArray *sessionPrevDataArray;
+@property(nonatomic, assign) NSRect lastBounds;
+@property(nonatomic, assign) NSPoint firstLocation;
+
+@end
+
 @implementation AKPaintView
+
+- (void)awakeFromNib {
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(markAllStepsAsShouldDraw:) name:NSUndoManagerWillUndoChangeNotification object:self.undoManager];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(markAllStepsAsShouldDraw:) name:NSUndoManagerWillRedoChangeNotification object:self.undoManager];
+}
 
 #pragma mark -
 #pragma mark Parend redeclarations
@@ -81,11 +94,16 @@
     glStencilMask(0);
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glHint(GL_TRANSFORM_HINT_APPLE, GL_FASTEST);
+
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 
 // Releases resources when they are not longer needed.
 - (void) dealloc
 {
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSUndoManagerWillUndoChangeNotification object:self.undoManager];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:NSUndoManagerWillRedoChangeNotification object:self.undoManager];
+
 	if (brushTexture)
 	{
 		glDeleteTextures(1, &brushTexture);
@@ -102,7 +120,7 @@
 {
     NSRect bounds = [self bounds];
 	
-    if (!NSEqualRects(bounds, lastBounds)) {
+    if (!NSEqualRects(bounds, self.lastBounds)) {
         
 		[[self openGLContext] update];
 		
@@ -119,16 +137,16 @@
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 		
-		lastBounds = bounds;
+		self.lastBounds = bounds;
     }
 }
-- (void) updatePaintCanvasBySessionDataArray:(NSArray *) dataArray {
-    
-    [self.undoManager registerUndoWithTarget:self selector:@selector(updatePaintCanvasBySessionDataArray:) object:sessionPrevDataArray];
+- (void) updatePaintCanvasBySessionDataArray:(NSArray *) dataArray
+{
+    [self.undoManager registerUndoWithTarget:self selector:@selector(updatePaintCanvasBySessionDataArray:) object:self.sessionPrevDataArray];
     
     [self.paintSession setDataArray:dataArray];
-    
-    sessionPrevDataArray = dataArray;
+	[self markAllStepsAsShouldDraw:nil];
+    self.sessionPrevDataArray = dataArray;
     
     [self setNeedsDisplay:YES];
 }
@@ -146,17 +164,17 @@
 
 - (void)mouseDown:(NSEvent *)theEvent {
     
-    firstLocation = [self convertPoint:theEvent.locationInWindow fromView:nil];
+    self.firstLocation = [self convertPoint:theEvent.locationInWindow fromView:nil];
 }
 
 - (void)mouseDragged:(NSEvent *)theEvent {
     
     NSPoint loc = [self convertPoint:theEvent.locationInWindow fromView:nil];
     
-    AKPaintStep *step = [self paintStepFromPoint:firstLocation toPoint:loc];
+    AKPaintStep *step = [self paintStepFromPoint:self.firstLocation toPoint:loc];
     [self.paintSession addStep:step];
     
-    firstLocation = loc;
+    self.firstLocation = loc;
     
     float sz = self.pointSize * 100;
     
@@ -168,7 +186,7 @@
 }
 
 
-#pragma mark - 
+#pragma mark -
 #pragma mark Bind Methods
 
 - (void) bindBrush {
@@ -285,52 +303,64 @@
     glDrawArrays(GL_POINTS, 0, (GLsizei)vertexCount);
 }
 
+- (void) reshape {
+	glClear(GL_COLOR_BUFFER_BIT);
+	[self markAllStepsAsShouldDraw:nil];
+}
+
+- (void) markAllStepsAsShouldDraw:(NSNotification *) notification {
+	glClear(GL_COLOR_BUFFER_BIT);
+	for(AKPaintStep *step in self.paintSession.steps) {
+		step.shouldDraw = YES;
+	}
+	[self update];
+}
+
 - (void)drawRect:(NSRect)rect
 {
 	[self updateMatrices];
-    
-    glClearColor(0, 0, 0, 0);
-	glClear(GL_COLOR_BUFFER_BIT);
-    
+
     BOOL mustBindBrush = YES;
     
     for(AKPaintStep *step in self.paintSession.steps) {
-        
-        //copy brush params if needed
-        if(self.hardness != step.hardness || self.pointAlpha != step.alpha) {
-            self.brush = [AKPaintControl brushImageWithHardness:step.hardness eraser:step.eraser alpha:step.alpha];
-                          
-            self.hardness = step.hardness;
-            self.pointAlpha = step.alpha;
-            
-            mustBindBrush = YES;
-        }
-        
-        //copy params
-        if(![self.brushColor isEqual:step.color])
-            self.brushColor = step.color;
-        if(self.eraser != step.eraser)
-            self.eraser = step.eraser;
-        if(self.pointSize != step.pointSize)
-            self.pointSize = step.pointSize;
-        if(self.brushPixelStep != step.brushPixelStep)
-            self.brushPixelStep = step.brushPixelStep;
-        
-        if(step.eraser)
-            [self bindEraser];
-        else
-            [self bindBrushColor];
-        
-        [self bindPointSize];
-        
-        //make sure that we don't load image too many times
-        if(mustBindBrush) {
-            
-            mustBindBrush = NO;
-            [self bindBrush];
-        }
-        
-        [self renderLineFromPoint:step.start toPoint:step.end];
+        if (step.shouldDraw) {
+			//copy brush params if needed
+			if(self.hardness != step.hardness || self.pointAlpha != step.alpha) {
+				self.brush = [AKPaintControl brushImageWithHardness:step.hardness eraser:step.eraser alpha:step.alpha];
+				
+				self.hardness = step.hardness;
+				self.pointAlpha = step.alpha;
+				
+				mustBindBrush = YES;
+			}
+			
+			//copy params
+			if(![self.brushColor isEqual:step.color])
+				self.brushColor = step.color;
+			if(self.eraser != step.eraser)
+				self.eraser = step.eraser;
+			if(self.pointSize != step.pointSize)
+				self.pointSize = step.pointSize;
+			if(self.brushPixelStep != step.brushPixelStep)
+				self.brushPixelStep = step.brushPixelStep;
+			
+			if(step.eraser)
+				[self bindEraser];
+			else
+				[self bindBrushColor];
+			
+			[self bindPointSize];
+			
+			//make sure that we don't load image too many times
+			if(mustBindBrush) {
+				
+				mustBindBrush = NO;
+				[self bindBrush];
+			}
+			
+			[self renderLineFromPoint:step.start toPoint:step.end];
+			step.shouldDraw = NO;
+		}
     }
     
     glFinish();

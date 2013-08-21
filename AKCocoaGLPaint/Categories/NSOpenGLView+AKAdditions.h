@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <OpenGL/glu.h>
+
 @interface NSOpenGLView (AKAdditions)
 
 - (NSImage *) snapshot;

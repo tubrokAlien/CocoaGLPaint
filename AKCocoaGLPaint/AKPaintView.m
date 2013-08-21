@@ -11,6 +11,8 @@
 #import "AKPaintStep.h"
 #import "AKPaintControl.h"
 
+#import <GLUT/glut.h>
+
 #import "NSImage+AKAdditions.h"
 
 @implementation AKPaintView

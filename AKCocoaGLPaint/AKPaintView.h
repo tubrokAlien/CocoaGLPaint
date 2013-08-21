@@ -19,6 +19,17 @@
     
     NSPoint firstLocation;
     NSArray *sessionPrevDataArray;
+    
+    
+    
+    AKPaintSession *_paintSession;
+    NSImage *_brush;
+    NSColor *_brushColor;
+    float _pointSize;
+    float _brushPixelStep;
+    float _hardness;
+    BOOL _eraser;
+    float _pointAlpha;
 }
 
 @property(nonatomic, retain, readonly) AKPaintSession *paintSession;

@@ -15,6 +15,20 @@
 
 @implementation AKPaintView
 
+
+#pragma mark -
+#pragma mark Properties
+
+@synthesize paintSession = _paintSession;
+@synthesize brush = _brush;
+@synthesize brushColor = _brushColor;
+@synthesize pointSize = _pointSize;
+@synthesize brushPixelStep = _brushPixelStep;
+@synthesize pointAlpha = _pointAlpha;
+@synthesize hardness = _hardness;
+@synthesize eraser = _eraser;
+
+
 #pragma mark -
 #pragma mark Parend redeclarations
 
@@ -138,7 +152,7 @@
     [self setNeedsDisplay:YES];
 }
 
-- (AKPaintStep*) paintStepFromPoint:(CGPoint)start toPoint:(CGPoint)end {
+- (AKPaintStep*) paintStepFromPoint:(NSPoint)start toPoint:(NSPoint)end {
     
     AKPaintStep* step = [[AKPaintStep alloc] initWithColor:self.brushColor start:start end:end pointSize:self.pointSize hardness:self.hardness eraser:self.eraser alpha:self.pointAlpha brushPixelStep:self.brushPixelStep];
     
@@ -243,10 +257,10 @@
 #pragma mark -
 #pragma mark Render methods
 
-- (void) renderLineFromPoint:(CGPoint)start toPoint:(CGPoint)end
+- (void) renderLineFromPoint:(NSPoint)start toPoint:(NSPoint)end
 {
     // Convert touch point from UIView referential to OpenGL one (upside-down flip)
-    CGRect bounds = [self bounds];
+    NSRect bounds = [self bounds];
     start.y = bounds.size.height - start.y;
     end.y = bounds.size.height - end.y;
     

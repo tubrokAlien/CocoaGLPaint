@@ -10,7 +10,12 @@
 
 #import "AKCocoaGLPaint.h"
 
-@interface AKAppDelegate : NSObject <NSApplicationDelegate>
+@interface AKAppDelegate : NSObject <NSApplicationDelegate> {
+
+    AKPaintControl *_paintControl;
+    AKPaintView *_paintView;
+    NSWindow *_window;
+}
 
 @property (assign) IBOutlet AKPaintControl *paintControl;
 @property (assign) IBOutlet AKPaintView *paintView;

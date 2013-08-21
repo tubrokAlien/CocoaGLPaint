@@ -10,7 +10,16 @@
 
 @implementation AKPaintStep
 
-- (id)initWithColor:(NSColor*)aColor start:(CGPoint)aStart end:(CGPoint)anEnd pointSize:(float) pointSize hardness:(float) hardness eraser:(BOOL) eraser alpha:(float) alpha brushPixelStep:(float) step {
+@synthesize color = _color;
+@synthesize start = _start;
+@synthesize end = _end;
+@synthesize eraser = _eraser;
+@synthesize pointSize = _pointSize;
+@synthesize hardness = _hardness;
+@synthesize alpha = _alpha;
+@synthesize brushPixelStep = _brushPixelStep;
+
+- (id)initWithColor:(NSColor*)aColor start:(NSPoint)aStart end:(NSPoint)anEnd pointSize:(float) pointSize hardness:(float) hardness eraser:(BOOL) eraser alpha:(float) alpha brushPixelStep:(float) step {
     if ((self = [super init])) {
         self.color = aColor;
         self.start = aStart;

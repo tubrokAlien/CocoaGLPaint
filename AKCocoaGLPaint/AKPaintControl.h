@@ -10,7 +10,17 @@
 
 @class AKPaintView;
 
-@interface AKPaintControl : NSObject
+@interface AKPaintControl : NSObject {
+    
+    float _lineWidth;
+    NSColor *_color;
+    float _alpha;
+    float _hardness;
+    BOOL _eraser;
+    NSImage *_brushImage;
+    
+    AKPaintView *_paintView;
+}
 
 @property (nonatomic) float lineWidth;
 @property (nonatomic, retain) NSColor * color;

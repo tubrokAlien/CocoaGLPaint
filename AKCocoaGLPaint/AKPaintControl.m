@@ -14,6 +14,19 @@
 @implementation AKPaintControl
 
 #pragma mark -
+#pragma mark Properties
+
+@synthesize lineWidth = _lineWidth;
+@synthesize color = _color;
+@synthesize alpha = _alpha;
+@synthesize hardness = _hardness;
+@synthesize eraser = _eraser;
+@synthesize brushImage = _brushImage;
+
+@synthesize paintView = _paintView;
+
+
+#pragma mark -
 #pragma mark Create/destroy methods
 
 - (void) loadDefaults {
@@ -57,10 +70,10 @@
 }
 - (void)dealloc {
     
-    [_color release];
-    [_brushImage release];
+    self.color = nil;
+    self.brushImage = nil;
     
-    [_paintView release];
+    self.paintView = nil;
     
     [super dealloc];
 }

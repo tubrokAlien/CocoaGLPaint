@@ -329,6 +329,7 @@
 		E98BD43C17A92A1300128D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AKCocoaGLPaintSample/AKCocoaGLPaintSample-Prefix.pch";
@@ -342,6 +343,7 @@
 		E98BD43D17A92A1300128D06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AKCocoaGLPaintSample/AKCocoaGLPaintSample-Prefix.pch";

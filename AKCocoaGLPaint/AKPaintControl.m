@@ -136,6 +136,7 @@
     
     NSString *brushkImgName = [NSString stringWithFormat:@"Brush_hardness_%i", (int)hardness*100];
     NSImage *brush = [[NSImage alloc] initWithData:[NSData dataWithContentsOfFile:[bundle pathForResource:brushkImgName ofType:@"png"]]];
+    [brush autorelease];
     
     if(alpha != 1)
         brush = [brush imageWithAlpha:alpha];

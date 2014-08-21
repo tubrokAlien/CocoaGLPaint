@@ -10,13 +10,23 @@
 
 @implementation NSImage (AKAdditions)
 
-- (CGImageRef)CGImage {
+- (CGImageRef) CGImage {
     
-    CGImageSourceRef source = CGImageSourceCreateWithData((CFDataRef)[self TIFFRepresentation], NULL);
+    CGImageSourceRef source;
+    
+    source = CGImageSourceCreateWithData((__bridge CFDataRef)[self TIFFRepresentation], NULL);
     CGImageRef maskRef =  CGImageSourceCreateImageAtIndex(source, 0, NULL);
+    CFRelease(source);
     
     return maskRef;
 }
+- (void) useCGImageWithBlock:(void(^)(CGImageRef img))block {
+    
+    CGImageRef imgRef = self.CGImage;
+    block(imgRef);
+    CGImageRelease(imgRef);
+}
+
 - (NSImage *)imageWithAlpha:(float)alpha {
     
     NSImage *dragImage = [[[NSImage alloc] initWithSize:[self size]] autorelease];

@@ -45,6 +45,7 @@
     for (NSArray* stepData in array) {
         AKPaintStep* step = [[AKPaintStep alloc] initWithData:stepData];
         [_steps addObject:step];
+        [step release];
     }
 }
 

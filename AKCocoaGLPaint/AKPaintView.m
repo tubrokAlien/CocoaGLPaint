@@ -216,6 +216,10 @@
     CGContextDrawImage(brushContext, CGRectMake(0.0, 0.0, (CGFloat)width, (CGFloat)height), brushImage);
     // You don't need the context at this point, so you need to release it to avoid memory leaks.
     CGContextRelease(brushContext);
+    
+    //clear image
+    CGImageRelease(brushImage);
+    
     // Use OpenGL ES to generate a name for the texture.
     glGenTextures(1, &brushTexture);
     // Bind the texture name.

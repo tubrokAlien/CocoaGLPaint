@@ -11,6 +11,7 @@
 @interface NSImage (AKAdditions)
 
 - (CGImageRef) CGImage;
+- (void) useCGImageWithBlock:(void(^)(CGImageRef img))block;
 - (NSImage *) imageWithAlpha:(float)alpha;
 
 - (void)writeToFile:(NSURL *)fileURL;
